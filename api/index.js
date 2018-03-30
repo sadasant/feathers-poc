@@ -7,7 +7,10 @@ const app = express(feathers().configure(conf))
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+app.configure(express.rest())
+
 require('./mongoose')
+require('./hooks').init(app)
 require('./models').init(app)
 app.use(express.errorHandler())
 

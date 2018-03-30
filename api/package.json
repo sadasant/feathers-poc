@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "fmt": "prettier --write '{index,models}/**/*.js'",
-    "start": "babel-node index.js"
+    "fmt": "prettier --write '{index,models,hooks}/**/*.js'",
+    "start": "babel-node index.js",
+    "poc": "babel-node test.js"
   },
   "author": "",
   "license": "",
@@ -20,7 +21,8 @@
     "babel-preset-env": "^1.6.1",
     "feathers-mongoose": "^6.1.0",
     "lodash": "^4.17.5",
-    "mongoose": "^5.0.12"
+    "mongoose": "^5.0.12",
+    "node-fetch": "^2.1.2"
   },
   "devDependencies": {
     "prettier": "^1.11.1"
