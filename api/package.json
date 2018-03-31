@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "fmt": "prettier --write '{index,models,hooks}/**/*.js'",
     "start": "babel-node index.js",
-    "poc": "babel-node test.js"
+    "poc": "babel-node poc/index.js"
   },
   "author": "",
   "license": "",
@@ -18,7 +18,9 @@
     "@feathersjs/configuration": "^1.0.2",
     "@feathersjs/express": "^1.2.1",
     "@feathersjs/feathers": "^3.1.4",
+    "@feathersjs/socketio": "^3.2.0",
     "babel-preset-env": "^1.6.1",
+    "bluebird": "^3.5.1",
     "feathers-mongoose": "^6.1.0",
     "lodash": "^4.17.5",
     "mongoose": "^5.0.12",
@@ -26,7 +28,8 @@
     "request-promise": "^4.2.2"
   },
   "devDependencies": {
-    "prettier": "^1.11.1"
+    "prettier": "^1.11.1",
+    "socket.io-client": "^2.1.0"
   },
   "prettier": {
     "semi": false,

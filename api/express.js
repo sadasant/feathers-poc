@@ -1,4 +1,5 @@
 import configuration from '@feathersjs/configuration'
+import socketio from '@feathersjs/socketio'
 import feathers from '@feathersjs/feathers'
 import express from '@feathersjs/express'
 
@@ -9,6 +10,9 @@ export const prepare = () => {
   app.use(express.json())
   app.use(express.urlencoded({extended: true}))
   app.configure(express.rest())
+  app.configure(socketio(io => {
+    io.on('connection', socket => console.log('A CLIENT CONNECTED'))
+  }))
   return app
 }
 
