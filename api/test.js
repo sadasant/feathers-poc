@@ -1,9 +1,10 @@
-import fetch from 'node-fetch'
+import request from 'request-promise'
 
-const fetchText = async route => (await fetch(`http://localhost:3000/${route}`)).text()
+const get = route => request({ uri: `http://localhost:3000/${route}`, method: 'GET' })
+const POST = route => request({ uri: `http://localhost:3000/${route}`, method: 'POST' })
 
 async function test() {
-  let text = await fetchText('message')
+  let text = await get('message')
   console.log(text)
 }
 
