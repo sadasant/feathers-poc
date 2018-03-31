@@ -1,6 +1,9 @@
-import { prepare, start } from './express'
+import { prepare, start } from './setup/express'
 const app = prepare()
-require('./mongoose')
+require('./setup/auth').init(app)
+require('./setup/socketio').init(app)
+require('./setup/mongoose')
 require('./hooks').init(app)
 require('./models').init(app)
+require('./services').init(app)
 start(app)
