@@ -8,6 +8,6 @@ const MessageSchema = new mongoose.Schema({
 })
 
 export const Model = mongoose.model('message', MessageSchema)
-export const paginate = { default: 2, max: 4 }
+export const paginate = { default: 30, max: 100 }
 export const path = '/message'
 export const lean = true

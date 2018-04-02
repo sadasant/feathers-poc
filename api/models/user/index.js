@@ -18,6 +18,17 @@ const UserSchema = new mongoose.Schema({
 UserSchema.plugin(require('mongoose-bcrypt'))
 
 export const Model = mongoose.model('user', UserSchema)
-export const paginate = { default: 2, max: 4 }
+export const paginate = { default: 30, max: 100 }
 export const path = '/user'
 export const lean = true
+
+// Creating the Admin User
+const adminUser = {
+  email: 'admin@admin.admin',
+  password: '1234'
+}
+async function createAdminUser() {
+  if (await Model.findOne({ email: adminUser.email })) return
+  Model.create(adminUser)
+}
+createAdminUser()
