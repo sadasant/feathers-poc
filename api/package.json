@@ -26,6 +26,8 @@
     "babel-preset-env": "^1.6.1",
     "bluebird": "^3.5.1",
     "colors": "^1.2.1",
+    "contexture": "^0.2.1",
+    "contexture-mongo": "^0.1.6",
     "feathers-mongoose": "^6.1.0",
     "lodash": "^4.17.5",
     "mongoose": "^5.0.12",

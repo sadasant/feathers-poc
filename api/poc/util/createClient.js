@@ -10,6 +10,7 @@ export default () => {
 
   const User = app.service('user')
   const Message = app.service('message')
+  const Search = app.service('search')
   logAllEvents(User)
   logAllEvents(Message)
 
@@ -29,6 +30,7 @@ export default () => {
     app,
     User,
     Message,
+    Search,
     countModels,
     login
   }
