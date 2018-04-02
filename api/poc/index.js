@@ -1,26 +1,22 @@
+import Promise from 'bluebird'
 import createClient from './util/createClient'
-import { count } from './util/services'
-const app = createClient()
-
-let adminUser = {
-  email: 'admin@admin.admin',
-  password: '1234'
-}
-
-const User = app.service('user')
-const Message = app.service('message')
+import getUser from './util/getUser'
+const { app, User, Message, countModels, login } = createClient()
 
 async function init() {
-  console.log('Users:', await count(User))
-  console.log('Messages:', await count(Message))
-  await app.authenticate({
-    strategy: 'local',
-    ...adminUser
-  })
-  await Message.create({
-    text: 'a message'
-  })
-  console.log('Messages:', await count(Message))
+  const user = getUser()
+  await countModels()
+  await login(user)
+  let count = 0
+  while (true) {
+    await Message.create({
+      text: new Date(),
+      company: count % 2 === 0 ? user.company : undefined
+    })
+    await countModels()
+    await Promise.delay(5000)
+    count++
+  }
 }
 
 init().catch(console.error)

@@ -7,7 +7,7 @@ export const init = app => {
     forceNew: true
   })
   socket.on('connect', () => console.log('connect'))
-  socket.on('event', data => console.log('event', data))
-  socket.on('disconnect', () => console.log('event'))
+  socket.on('news', data => console.log('news', data))
+  socket.on('disconnect', () => console.log('disconnect'))
   app.configure(socketio(socket))
 }

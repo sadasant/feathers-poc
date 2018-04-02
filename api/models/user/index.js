@@ -8,6 +8,11 @@ const UserSchema = new mongoose.Schema({
     index: true,
     dropDups: true
   },
+  // TODO: Company should be a different model
+  company: {
+    type: String,
+    required: true
+  },
   password: {
     type: String,
     required: true,
@@ -22,13 +27,19 @@ export const paginate = { default: 30, max: 100 }
 export const path = '/user'
 export const lean = true
 
-// Creating the Admin User
-const adminUser = {
+// IMPORTANT: For testing only
+// Creating the users
+async function maybeCreateUser(user) {
+  if (await Model.findOne({ email: user.email })) return
+  Model.create(user)
+}
+maybeCreateUser({
   email: 'admin@admin.admin',
+  company: 'admins',
   password: '1234'
-}
-async function createAdminUser() {
-  if (await Model.findOne({ email: adminUser.email })) return
-  Model.create(adminUser)
-}
-createAdminUser()
+})
+maybeCreateUser({
+  email: 'common@common.common',
+  company: 'common',
+  password: '1234'
+})

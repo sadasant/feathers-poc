@@ -25,12 +25,11 @@
     "@feathersjs/socketio": "^3.2.0",
     "babel-preset-env": "^1.6.1",
     "bluebird": "^3.5.1",
+    "colors": "^1.2.1",
     "feathers-mongoose": "^6.1.0",
     "lodash": "^4.17.5",
     "mongoose": "^5.0.12",
-    "mongoose-bcrypt": "^1.5.0",
-    "request": "^2.85.0",
-    "request-promise": "^4.2.2"
+    "mongoose-bcrypt": "^1.5.0"
   },
   "devDependencies": {
     "@feathersjs/socketio-client": "^1.1.0",
