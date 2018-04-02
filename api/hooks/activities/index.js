@@ -1,3 +1,3 @@
-export const before = () => console.log('audit before')
-export const after = () => console.log('audit after')
-export const error = () => console.log('audit error')
+export const before = ({ path, type, method }) => console.log('audit', type, path, method)
+export const after = before
+export const error = before

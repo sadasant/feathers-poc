@@ -1,3 +1,3 @@
-export const before = () => console.log('channel before')
-export const after = () => console.log('channel after')
-export const error = () => console.log('channel error')
+export const before = ({ path, type, method }) => console.log('channel', type, path, method)
+export const after = before
+export const error = before
