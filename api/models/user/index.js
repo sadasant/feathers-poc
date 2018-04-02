@@ -35,7 +35,7 @@ async function maybeCreateUser(user) {
 }
 maybeCreateUser({
   email: 'admin@admin.admin',
-  company: 'admins',
+  company: 'admin',
   password: '1234'
 })
 maybeCreateUser({

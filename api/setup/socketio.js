@@ -13,16 +13,16 @@ export const init = app => {
     // real-time connection, e.g. when logging in via REST
     if (connection) {
       const { user } = connection;
-      console.log(colors.cyan('LOGIN %s %s'), user.email, user.company)
-      app.channel(`companies/${user.company}`).join(connection);
-      app.channel('public').join(connection);
+      console.log(colors.cyan('LOGIN %s'), JSON.stringify(user))
+      app.channel(`companies/${user.company}`).join(connection)
+      app.channel('public').join(connection)
     }
   })
   app.publish(data => {
     console.log(colors.yellow('PUBLISH %s'), JSON.stringify(data))
     const { company } = data;
     // If the data is associated to a company send it to the company channel
-    if(company) {
+    if (company) {
       return app.channel(`companies/${company}`)
     } else {
       return app.channel('public')
