@@ -21,12 +21,12 @@ export const init = app => {
   app.configure(jwt())
   app.hooks({
     before: {
+      all: [
+        auth.hooks.authenticate(['jwt'])
+      ],
       create: [
         auth.hooks.authenticate(['jwt', 'local'])
       ],
-      remove: [
-        auth.hooks.authenticate(['jwt'])
-      ]
     }
   })
 }

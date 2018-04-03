@@ -9,8 +9,8 @@
     "start": "babel-node index.js",
     "poc": "babel-node poc/index.js"
   },
-  "author": "",
-  "license": "",
+  "author": "Daniel Rodriguez <sadasant@gmail.com>",
+  "license": "beerware",
   "dependencies": {
     "@babel/core": "^7.0.0-beta.42",
     "@babel/node": "^7.0.0-beta.42",

@@ -7,8 +7,8 @@ const { app, User, Message, Search, countModels, login } = createClient()
 
 async function init() {
   const user = getUser()
-  await countModels()
   await login(user)
+  await countModels()
   if (user.company === 'admin') {
     (await Message.find()).data.map(({ _id }) => Message.remove(_id))
   }
