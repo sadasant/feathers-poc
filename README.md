@@ -42,7 +42,7 @@ time. Instructions follow:
 
 1. To clone the repo: `git clone git@github.com:sadasant/feathers-poc.git`.
 2. To install it's dependencies: `npm install`.
-3. To run the server: `npm start`. This will attempt to initialize a web server on the port 3000.
+3. To run the server: `npm start`. This will attempt to initialize a web server on the port 1337.
 4. To run a common user: `npm run poc`. You'll need to do this on a separate terminal.
 5. To run an admin user: `npm run poc admin`. You'll need to do this on a separate terminal.
 
@@ -78,6 +78,19 @@ know that this can be done by exposing the environment variable
 `DEBUG=* npm run poc`. The output is verbose, so I recmmend doing:
 `DEBUG=* npm run poc > output 2>&1` then inspecting the `output` file
 after waiting ten or fifteen seconds.
+
+## Are you sure the `poc` code runs in the browser?
+
+**YES!** But don't believe me, you can try it yourself. Here are the instructions:
+
+1. Make sure the server is running: `npm start`.
+2. Build the `poc` files and start a static web server with `npm run web`.
+3. Click here: <http://localhost:3000>
+
+Done! You should be able to see it live and kicking. Here's a
+screenshot:
+
+[![](https://i.imgur.com/EepRTPf.png)](https://i.imgur.com/EepRTPf.png)
 
 ## Why did you do this?
 

@@ -1,8 +1,11 @@
+import _ from 'lodash/fp'
 import io from 'socket.io-client'
 import socketio from '@feathersjs/socketio-client'
 
+const hostname = _.get('location.hostname', global || window) || 'localhost'
+
 export const init = app => {
-  const socket = io('http://localhost:3000', {
+  const socket = io(`http://${hostname}:1337`, {
     transports: ['websocket'],
     forceNew: true
   })

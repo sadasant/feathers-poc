@@ -7,26 +7,24 @@ const conf = configuration()
 
 export const init = app => {
   let port = conf().port
-  app.configure(auth({
-    path: '/auth',
-    service: 'user',
-    secret: 'our-secret',
-    jwt: {
-     audience: `http://localhost:${port}`,
-     issuer: 'feathers',
-     expiresIn: '1d'
-    }
-  }))
+  app.configure(
+    auth({
+      path: '/auth',
+      service: 'user',
+      secret: 'our-secret',
+      jwt: {
+        audience: `http://localhost:${port}`,
+        issuer: 'feathers',
+        expiresIn: '1d'
+      }
+    })
+  )
   app.configure(local())
   app.configure(jwt())
   app.hooks({
     before: {
-      all: [
-        auth.hooks.authenticate(['jwt'])
-      ],
-      create: [
-        auth.hooks.authenticate(['jwt', 'local'])
-      ],
+      all: [auth.hooks.authenticate(['jwt'])],
+      create: [auth.hooks.authenticate(['jwt', 'local'])]
     }
   })
 }

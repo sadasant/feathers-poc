@@ -7,7 +7,7 @@ const conf = configuration()
 export const prepare = () => {
   let app = express(feathers().configure(conf))
   app.use(express.json())
-  app.use(express.urlencoded({extended: true}))
+  app.use(express.urlencoded({ extended: true }))
   app.configure(express.rest())
   return app
 }
@@ -15,5 +15,7 @@ export const prepare = () => {
 export const start = app => {
   let port = conf().port
   app.use(express.errorHandler())
-  app.listen(port, () => console.log(`Feathers server listening on port ${port}`))
+  app.listen(port, () =>
+    console.log(`Feathers server listening on port ${port}`)
+  )
 }

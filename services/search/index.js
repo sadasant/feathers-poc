@@ -10,12 +10,12 @@ const client = Contexture({
       mongo: {
         collection: 'messages'
       }
-    },
+    }
   },
   providers: {
     mongo: require('contexture-mongo')({
       getClient: () => mongoose.connection,
-      types: require('contexture-mongo/types')(),
+      types: require('contexture-mongo/types')()
     })
   }
 })
