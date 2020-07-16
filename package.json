@@ -30,7 +30,7 @@
     "contexture": "^0.2.1",
     "contexture-mongo": "^0.1.6",
     "feathers-mongoose": "^6.1.0",
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.19",
     "mongoose": "^5.0.12",
     "mongoose-bcrypt": "^1.5.0"
   },
